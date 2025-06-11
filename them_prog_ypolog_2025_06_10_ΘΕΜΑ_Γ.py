@@ -15,8 +15,7 @@
 ##α) Το όνομα του σχολείου. (μον.2)
 ##β) Τον τύπο του σχολείου ("ΕΠΑΛ" για Επαγγελματικό Λύκειο, "ΠΕΠΑΛ" για
 ##Πρότυπο Επαγγελματικό Λύκειο, "ΓΕΛ" για Γενικό Λύκειο, "ΜΟΥΣ" για
-##Μουσικό σχολείο).
-##(μον.2)
+##Μουσικό σχολείο). (μον.2)
 ##γ) Το πλήθος των μαθητών του σχολείου. Να γίνεται έλεγχος ορθότητας,
 ##ώστε το πλήθος των μαθητών που καταχωρίζονται να είναι από είκοσι (20)
 ##έως και πενήντα (50) μαθητές. (μον.6)
@@ -32,15 +31,14 @@
 ##Γ4. Να υπολογίζει και να εμφανίζει:
 ##α) Τα συνολικά έσοδα του πλανηταρίου από τις επισκέψεις των σχολείων. (μον.3)
 ##β) Το ποσοστό των μαθητών των Πρότυπων Επαγγελματικών Λυκείων (ΠΕΠΑΛ)
-##που επισκέφθηκαν το πλανητάριο κατά τη διάρκεια των πέντε (5) ημερών.
-##(μον.6)
+##που επισκέφθηκαν το πλανητάριο κατά τη διάρκεια των πέντε (5) ημερών. (μον.6)
 ##Μονάδες 9
 ##Σημείωση: Θεωρήστε ότι υπάρχει τουλάχιστον ένα (1) σχολείο από κάθε τύπο
 ##σχολείου στη διάρκεια των πέντε (5) ημερών.
 ##
-def YPOLOGISMOS(mathites):
+def YPOLOGISMOS(eisitiria):
     TIMH = 4
-    return TIMH*mathites 
+    return TIMH*eisitiria
 
 SXOLEIA = 4
 HMERES = 5
@@ -51,47 +49,20 @@ synol_mathites = 0
 synol_esoda = 0
 mathites_pepal = 0
 
-##for hmera in range(1, HMERES+1):
-##    print("Ημέρα {}".format(hmera))
-##    for sxoleio in range(1, SXOLEIA+1):
-##        onoma_sxoleiou = input("Όνομα σχολείου {}: ".format(sxoleio))
-##        typos_sxoleiou = input("Τύπος σχολείου {} [ΕΠΑΛ, ΠΕΠΑΛ, ΓΕΛ, ΜΟΥΣ]: ".format(sxoleio))
-##        mathites = ""
-##        while not mathites.isdigit() \
-##          or int(mathites) not in range(KATW, PANW+1):
-##            mathites = input("Πλήθος μαθητών του σχολείου {} (20-50): ".format(sxoleio))
-##        mathites = int(mathites)
-##        synol_mathites += mathites
-##        print("Κόστος εισιτηρίων για το σχολείο {}: €{}".format(sxoleio, YPOLOGISMOS(mathites)))
-##        synol_esoda += YPOLOGISMOS(mathites)
-##        if typos_sxoleiou=="ΠΕΠΑΛ":
-##            mathites_pepal += mathites
-##print("Συνολικά έσοδα του πλανηταρίου: €{}".format(synol_esoda))
-##print("Ποσοστό των μαθητών των Πρότυπων Επαγγελματικών Λυκείων (ΠΕΠΑΛ) που επισκέφθηκαν το πλανητάριο: {:.1%}".format(mathites_pepal / synol_mathites))
-
-try:
-    print("Ανάγνωση του αρχείου εισόδου...\n")
-    INPUTFILENAME="mathites.txt"
-    with open(INPUTFILENAME, 'r', encoding="utf-8") as inputfile:
-        for hmera in range(1, HMERES+1):
-            print("Ημέρα {}".format(hmera))
-            for sxoleio in range(1, SXOLEIA+1):
-                onoma_sxoleiou = inputfile.readline().strip('\n').strip('\ufeff')
-                print("Όνομα σχολείου {}: {}".format(sxoleio, onoma_sxoleiou))
-                typos_sxoleiou = inputfile.readline().strip('\n').strip('\ufeff')
-                print("Τύπος σχολείου {} [ΕΠΑΛ, ΠΕΠΑΛ, ΓΕΛ, ΜΟΥΣ]: {}".format(sxoleio, typos_sxoleiou))
-                mathites = ""
-                while not mathites.isdigit() \
-                  or int(mathites) not in range(KATW, PANW+1):
-                    mathites = inputfile.readline().strip('\n').strip('\ufeff')
-                    print("Πλήθος μαθητών του σχολείου {} (20-50): {}".format(sxoleio, mathites))
-                mathites = int(mathites)
-                synol_mathites += mathites
-                print("Κόστος εισιτηρίων για το σχολείο {}: €{}".format(sxoleio, YPOLOGISMOS(mathites)))
-                synol_esoda += YPOLOGISMOS(mathites)
-                if typos_sxoleiou=="ΠΕΠΑΛ":
-                    mathites_pepal += mathites
-    print("Συνολικά έσοδα του πλανηταρίου: €{}".format(synol_esoda))
-    print("Ποσοστό μαθητών των Πρότυπων Επαγγελματικών Λυκείων (ΠΕΠΑΛ) που επισκέφθηκαν το πλανητάριο: {:.1%}".format(mathites_pepal / synol_mathites))
-except Exception as err:
-    print("Σφάλμα στην ανάγνωση του αρχείου εισόδου!", err)
+for hmera in range(1, HMERES+1):
+    print("Ημέρα {}".format(hmera))
+    for sxoleio in range(1, SXOLEIA+1):
+        onoma_sxoleiou = input("Όνομα σχολείου {}: ".format(sxoleio))
+        typos_sxoleiou = input("Τύπος σχολείου {} [ΕΠΑΛ, ΠΕΠΑΛ, ΓΕΛ, ΜΟΥΣ]: ".format(sxoleio))
+        mathites = ""
+        while not mathites.isdigit() \
+          or int(mathites) not in range(KATW, PANW+1):
+            mathites = input("Πλήθος μαθητών του σχολείου {} (20-50): ".format(sxoleio))
+        mathites = int(mathites)
+        synol_mathites += mathites
+        print("Κόστος εισιτηρίων για το σχολείο {}: €{}".format(sxoleio, YPOLOGISMOS(mathites)))
+        synol_esoda += YPOLOGISMOS(mathites)
+        if typos_sxoleiou=="ΠΕΠΑΛ":
+            mathites_pepal += mathites
+print("Συνολικά έσοδα του πλανηταρίου: €{}".format(synol_esoda))
+print("Ποσοστό των μαθητών των Πρότυπων Επαγγελματικών Λυκείων (ΠΕΠΑΛ) που επισκέφθηκαν το πλανητάριο: {:.1%}".format(mathites_pepal / synol_mathites))
